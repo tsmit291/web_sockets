@@ -11,8 +11,6 @@
 2. Build your own version of google docs
   (multiple people coming in to one document and editing it, being able to see what others are adding/deleting)
 
-
-
 ### Resources
 - http://socket.io/
 - http://briantford.com/blog/angular-socket-io
