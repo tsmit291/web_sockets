@@ -184,4 +184,4 @@ Start your nodemon, open your web tools and make sure your socket is there!
 __You're Fully Set Up Now!__
 
 *****
-### Sockets in Angular 
+### Sockets in Angular
