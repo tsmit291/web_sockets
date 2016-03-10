@@ -81,54 +81,26 @@ So what if I'm using Angular on the front-end, and I want to use my socket! So h
 var app = angular.module('myApp', []);
 
 app.controller('mainController', function($scope, socketService){
-  var socket = io();
   $scope.names = [];
-  socket.on('myMessage', function grabName(data){
+  socketService.on('myMessage', function grabName(data){
     $scope.names.push(data);
+    socketService.emit('anotherMessage', data)
   })
+
 });
 
 app.service('socketService', function($scope){
-
+  var socket = io();
+  return socket;
 })
 
 ```
 
+*ANGULAR REVIEW*
 What is the difference between...
 - $apply()
 - $digest()
 
 When should I be using each?
-
-
-<!--
-  myService.on(function(number){
-      $scope.numbers.push(number);
-      $scope.digest();
-  })
-});
-
-// Services - a thing thats accessible everywhere, grabbing data from everywhere, singleton - only has one instance
-// Factories - creating something new, creates a new instance
-
-app.service('myService', function($scope){
-  var socket = io();
-  var callbacks = [];
-  socket.on('number', function(number){
-    callbacks.forEach(function(cb){
-      cb(number)
-    }
-    return{
-      on(callback){
-        callbacks.push(callback)
-      }
-    }
-  }
-});
-
-app.service('myService', function($scope){
-  return io();
-})
-``` -->
 
 **You're ready to build your first chat!**
