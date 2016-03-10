@@ -98,12 +98,12 @@ In your `chat.js`:
 
 1. Use jQuery to add a listener for form submissions.
 2. In the callback to your listener, prevent the default submit action; then,
-3. Use the `socket.emit` method to send the message the user typed to the server. `socket.emit` takes two arguments: the first is just the name you want to give to the event you're passing (let's call it `'chat message'`), while the second is the actual data you want to pass (how can you get the user's message using jQuery?).
+3. Use the `socket.emit` method to send the message the user typed to the server. (how can you get the user's message using jQuery?).
 4. After `emitting`, clear the input field. Our chat app would be pretty clunky if users had to delete their old messages before they could type in new ones.
 
 To be sure that your messages are being sent correctly, in your `app.js`:
 
-1. replace your `console.log` inside of your `io.on` callback with a listener for messages from the client. In this case, you should use `socket.on`, which takes two arguments: the first is the name of the event it should listen for (i.e. `'chat message'`), while the second is a callback. Have your callback log the received message to the console.
+1. Replace your `console.log` inside of your `io.on` callback with a listener for messages from the client. In this case, you should use `socket.on`, have your callback log the received message to the console.
 
 ## Step 4: Sending messages _from_ the server
 
@@ -111,7 +111,7 @@ Here's where the real-time magic kicks in. Let's make it so that when our server
 
 In your `app.js`:
 
-1. Instead of using a `console.log` in your `socket.on` callback, use `io.emit` to emit the message. Once again, this method takes two arguments: the first is the name of the event, the second is the data you want to emit.
+1. Instead of using a `console.log` in your `socket.on` callback, use `io.emit` to emit the message.
 
 In our `chat.js`
 

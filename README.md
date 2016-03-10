@@ -4,7 +4,7 @@
 2. [Set Up your Sockets](setUp.md)
 3. [Socket Terminology and Use](usingSockets.md)
 4. [Build a Chat](chatRoom.md)
-5. [Auth with Sockets](authentication.md)
+5. Stretch: [Auth with Sockets](authentication.md)
 
 ### Stretch Goals
 1. Build your chat using Angular!

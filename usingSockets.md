@@ -20,7 +20,7 @@ socket.on('myMessage', function(data){
 ```
 
 ### Io.emit
-__Sending a Message to ALL Clients__
+__Sending a Message to ALL Clients!__
 Now what if I want to send a message to everyone in the chatroom? Kind of like how our @channel works in the Slack?
 Here I would use 'io.emit'. Again, this method takes two arguments, 1. The name of the event 2. The data we're emitting.
 
@@ -31,7 +31,7 @@ io.emit('toEveryone', 'Hackathon tomorrow, get excited!!');
 We would most likely want to put that code in our server side and just have our client listen in on it with a socket.on!
 
 ### Socket.broadcast.emit
-__Sending a Message to ALL Clients, BUT the initiator__
+__Sending a Message to ALL Clients, BUT the initiator!__
 So wait...when I do an @channel in slack, it doesn't notify me of the message I just sent out right? If I want to send a message to everyone except myself as the initiator I'm going use 'socket.broadcast.emit'. Can you guess how many arguments this is going to take?  Can you guess what they are?
 
 ```js

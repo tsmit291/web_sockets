@@ -18,7 +18,8 @@ Well now with web sockets we are establishing a persistent connection between th
 
 To check if a site is using a web socket:
 Chrome Web Tools -> Network -> WS (web socket) and see if one exists!
-<!-- Agar.io and Slack both do to show as in class examples! -->
+<!-- Agar.io, Slack and Etherpad all use sockets to show as in class examples! -->
+
 ### Socket.io
 [Reading](https://davidwalsh.name/websocket):
 This article describes web sockets and socket.io extremely well and since we will working with socket.io I highly suggest getting through it! It's not very long, maybe 5-10 minutes!
