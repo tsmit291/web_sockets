@@ -84,7 +84,7 @@ app.controller('mainController', function($scope, socketService){
   $scope.names = [];
   socketService.on('myMessage', function grabName(data){
     $scope.names.push(data);
-    socketService.emit('anotherMessage', data)
+    socketService.emit('anotherMessage', {myObject: 'Information'})
   })
 
 });
@@ -97,10 +97,12 @@ app.service('socketService', function($scope){
 ```
 
 *ANGULAR REVIEW*
+
 What is the difference between...
 - $apply()
 - $digest()
 
 When should I be using each?
+Hint... you may want to try implementing one of these with your socket code...
 
 **You're ready to build your first chat!**
