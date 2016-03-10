@@ -1,0 +1,23 @@
+{
+  "name": "web-sockets-curriculum",
+  "version": "1.0.0",
+  "description": "1. [Introduction to Web Sockets](intro.md) 2. [Set Up your Sockets](setUp.md) 3. [Socket Terminology and Use](usingSockets.md) 4. [Build a Chat](chatRoom.md) 5. Stretch: [Auth with Sockets](authentication.md)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsmit291/web-sockets-curriculum.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsmit291/web-sockets-curriculum/issues"
+  },
+  "homepage": "https://github.com/tsmit291/web-sockets-curriculum#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "socket.io": "^1.4.5"
+  }
+}
