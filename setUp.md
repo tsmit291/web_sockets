@@ -1,5 +1,5 @@
 # Set Up
-These instructions go through how to set up your sockets either using an express generator, not using the express generator and within you client side angular code!
+These instructions go through how to set up your sockets either using an express generator or not using the express generator!
 
 ### Not using the Express Generator
 In the command line:
@@ -143,7 +143,7 @@ Now we need to hook up our socket middleware. Because we're using the generator 
 // this first line should already be there
 var server = http.createServer(app);
 // This is talking about the socket.js file you're about to make
-var Socket = require('../socket');
+var Socket = require('../io');
 Socket(server);
 ```
 
@@ -151,7 +151,7 @@ Socket(server);
 
 *The bin file is where the generator runs the http server, that is what you need access to in order to fire your sockets, otherwise in app.js you only have access to your app.*
 
-Now create a socket.js file that lives in the main file structure, add this code...
+Now create a io.js file that lives in your lib file , add this code...
 ```js
 var Socket = require('socket.io');
 module.exports=function(server){
@@ -184,68 +184,3 @@ var socket = io();
 Start your nodemon, open your web tools and make sure your socket is there!
 
 __You're Fully Set Up Now!__
-
-*****
-### Sockets in Angular
-So now I'm using Angular on the front-end, and I want to use my socket! So how do I do that? We create a service.
-
-```js
-var app = angular.module('myApp', []);
-
-app.controller('mainController', function($scope, socketService){
-  var socket = io();
-})
-
-app.service('socketService', function($scope){
-
-})
-
-```
-
-What is the difference between...
-- $apply()
-- $digest()
-
-When should I be using each? 
-
-
-<!-- ```js
-app.controller('mainController', function($scope, myService){
-  // var socket = io();
-  $scope.numbers = [];
-  // socket.on('number', function(number){
-  //   console.log(number);
-  //   $scope.numbers.push(number)
-  //   console.log($scope.numbers.length);
-  // })
-
-  myService.on(function(number){
-      $scope.numbers.push(number);
-      $scope.digest();
-  })
-});
-
-// DONT PUT YOUR SOCKET STUFF IN YOUR CONTROLLER!!! ^^^ CREATE A SERVICE INSTEAD!! vvv
-
-// Services - a thing thats accessible everywhere, grabbing data from everywhere, singleton - only has one instance
-// Factories - creating something new, creates a new instance
-
-app.service('myService', function($scope){
-  var socket = io();
-  var callbacks = [];
-  socket.on('number', function(number){
-    callbacks.forEach(function(cb){
-      cb(number)
-    }
-    return{
-      on(callback){
-        callbacks.push(callback)
-      }
-    }
-  }
-});
-
-app.service('myService', function($scope){
-  return io();
-})
-``` -->
