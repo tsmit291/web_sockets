@@ -1,4 +1,5 @@
 # Set Up
+These instructions go through how to set up your sockets either using an express generator, not using the express generator and within you client side angular code!
 
 ### Not using the Express Generator
 In the command line:
@@ -6,6 +7,7 @@ In the command line:
 npm init
 npm install socket.io express -S
 touch app.js
+echo node_modules > .gitignore
 ```
 Then open up your app.js and set up your socket:
 ```js
@@ -45,7 +47,7 @@ Now let's get our localhost running and setup....remember how to do that?
 
 ```js
 var port = 3000;
-server.use(port, function(){
+server.listen(port, function(){
   console.log('Now listening on port: ' + port);
 })
 ```
@@ -185,3 +187,65 @@ __You're Fully Set Up Now!__
 
 *****
 ### Sockets in Angular
+So now I'm using Angular on the front-end, and I want to use my socket! So how do I do that? We create a service.
+
+```js
+var app = angular.module('myApp', []);
+
+app.controller('mainController', function($scope, socketService){
+  var socket = io();
+})
+
+app.service('socketService', function($scope){
+
+})
+
+```
+
+What is the difference between...
+- $apply()
+- $digest()
+
+When should I be using each? 
+
+
+<!-- ```js
+app.controller('mainController', function($scope, myService){
+  // var socket = io();
+  $scope.numbers = [];
+  // socket.on('number', function(number){
+  //   console.log(number);
+  //   $scope.numbers.push(number)
+  //   console.log($scope.numbers.length);
+  // })
+
+  myService.on(function(number){
+      $scope.numbers.push(number);
+      $scope.digest();
+  })
+});
+
+// DONT PUT YOUR SOCKET STUFF IN YOUR CONTROLLER!!! ^^^ CREATE A SERVICE INSTEAD!! vvv
+
+// Services - a thing thats accessible everywhere, grabbing data from everywhere, singleton - only has one instance
+// Factories - creating something new, creates a new instance
+
+app.service('myService', function($scope){
+  var socket = io();
+  var callbacks = [];
+  socket.on('number', function(number){
+    callbacks.forEach(function(cb){
+      cb(number)
+    }
+    return{
+      on(callback){
+        callbacks.push(callback)
+      }
+    }
+  }
+});
+
+app.service('myService', function($scope){
+  return io();
+})
+``` -->
